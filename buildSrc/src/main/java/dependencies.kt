@@ -49,6 +49,12 @@ public object Libs {
         const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version"
     }
 
+    object Koin {
+        const val version = "2.2.2"
+        const val core = "org.koin:koin-core:$version"
+        const val android = "org.koin:koin-android:$version"
+        const val test = "org.koin:koin-test:$version"
+    }
 
     object AndroidX {
         const val appcompat = "androidx.appcompat:appcompat:1.2.0-rc01"
