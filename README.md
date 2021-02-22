@@ -2,7 +2,7 @@
 
 This is my first Simple Compose App.
 
-# Technologies
+## Technologies
 
 * Koin - Dependency Injection
 * Compose - Declarative UI
