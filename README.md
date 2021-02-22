@@ -2,9 +2,8 @@
 
 This is my first Simple Compose App.
 
-# ComposeMeApp in develop
+# Technologies
 
-Technologies:
 * Koin - Dependency Injection
 * Compose - Declarative UI
 * MVVM - Project Architecture Component
