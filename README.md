@@ -11,4 +11,4 @@ Technologies:
 *Coroutines - Async Work
 *Android Navigation Component - Simple NavGraph Routing
 *Spotless Plugin - Code Formatting
-*Other support libraries: Material, Accompanist 
+*Other support libraries: Material, Accompanist
