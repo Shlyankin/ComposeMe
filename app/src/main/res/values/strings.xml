@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ComposeMeApp</string>
     <string name="close">close</string>
+    <string name="question_count">%d of %d</string>
+    <string name="prev">Назад</string>
+    <string name="next">Далее</string>
 </resources>

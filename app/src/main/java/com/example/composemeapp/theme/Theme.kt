@@ -44,8 +44,12 @@ val Colors.progressIndicatorBackground: Color
     @Composable
     get() = if (isLight) Color.Black.copy(alpha = 0.12f) else Color.Black.copy(alpha = 0.24f)
 
+val Colors.grey: Color
+    @Composable
+    get() = if (isLight) Color.Black.copy(alpha = 0.75f) else Color.Black.copy(alpha = 0.25f)
+
 @Composable
-fun JetsurveyTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
+fun ComposeMeTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
     val colors = if (darkTheme) {
         DarkThemeColors
     } else {

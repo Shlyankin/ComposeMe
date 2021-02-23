@@ -8,6 +8,8 @@ import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import com.example.composemeapp.R
+import com.example.composemeapp.theme.ComposeMeTheme
+import com.example.composemeapp.ui.survey.view.SurveyQuestion
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SurveyFragment: Fragment() {
@@ -23,7 +25,9 @@ class SurveyFragment: Fragment() {
             id = R.id.survey_fragment
             layoutParams =ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT)
             setContent {
-
+                ComposeMeTheme {
+                    SurveyQuestion()
+                }
             }
         }
     }
