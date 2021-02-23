@@ -5,25 +5,27 @@ import androidx.annotation.StringRes
 
 data class SurveyResult(
     val library: String,
-    @StringRes val result: Int,
-    @StringRes val description: Int
+    val result: String,
+    val description: String
 )
 
 data class Survey(
-    @StringRes val title: Int,
+    val title: String,
     val questions: List<Question>
 )
 
 data class Question(
     val id: Int,
-    @StringRes val questionText: Int,
+    val questionText: String,
     val answer: PossibleAnswer,
-    @StringRes val description: Int? = null
+    val description: String? = null
 )
 
-/**
- * Type of supported actions for a survey
- */
+data class Answer(
+    val id: Int,
+    val answerText: String
+)
+
 enum class SurveyActionType { PICK_DATE, TAKE_PHOTO, SELECT_CONTACT }
 
 sealed class SurveyActionResult {
@@ -33,44 +35,40 @@ sealed class SurveyActionResult {
 }
 
 sealed class PossibleAnswer {
-    data class SingleChoice(val optionsStringRes: List<Int>) : PossibleAnswer()
-    data class MultipleChoice(val optionsStringRes: List<Int>) : PossibleAnswer()
+    data class SingleChoice(val optionsString: List<Answer>) : PossibleAnswer()
+    data class MultipleChoice(val optionsString: List<Answer>) : PossibleAnswer()
     data class Action(
-        @StringRes val label: Int,
+        val label: String,
         val actionType: SurveyActionType
     ) : PossibleAnswer()
 
     data class Slider(
         val range: ClosedFloatingPointRange<Float>,
         val steps: Int,
-        @StringRes val startText: Int,
-        @StringRes val endText: Int,
+        val startText: String,
+        val endText: String,
         val defaultValue: Float = range.start
     ) : PossibleAnswer()
 }
 
-sealed class Answer<T : PossibleAnswer> {
-    data class SingleChoice(@StringRes val answer: Int) : Answer<PossibleAnswer.SingleChoice>()
-    data class MultipleChoice(val answersStringRes: Set<Int>) :
-        Answer<PossibleAnswer.MultipleChoice>()
+sealed class ResultAnswer<T : PossibleAnswer> {
+    data class SingleChoice(val answer: Answer) : ResultAnswer<PossibleAnswer.SingleChoice>()
+    data class MultipleChoice(val answers: Set<Answer>) :
+        ResultAnswer<PossibleAnswer.MultipleChoice>()
 
-    data class Action(val result: SurveyActionResult) : Answer<PossibleAnswer.Action>()
-    data class Slider(val answerValue: Float) : Answer<PossibleAnswer.Slider>()
+    data class Action(val result: SurveyActionResult) : ResultAnswer<PossibleAnswer.Action>()
+    data class Slider(val answerValue: Float) : ResultAnswer<PossibleAnswer.Slider>()
 }
 
-/**
- * Add or remove an answer from the list of selected answers depending on whether the answer was
- * selected or deselected.
- */
-fun Answer.MultipleChoice.withAnswerSelected(
-    @StringRes answer: Int,
+fun ResultAnswer.MultipleChoice.withAnswerSelected(
+    answer: Answer,
     selected: Boolean
-): Answer.MultipleChoice {
-    val newStringRes = answersStringRes.toMutableSet()
+): ResultAnswer.MultipleChoice {
+    val newStringRes = answers.toMutableSet()
     if (!selected) {
         newStringRes.remove(answer)
     } else {
         newStringRes.add(answer)
     }
-    return Answer.MultipleChoice(newStringRes)
+    return ResultAnswer.MultipleChoice(newStringRes)
 }

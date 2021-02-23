@@ -5,7 +5,7 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import com.example.composemeapp.data.Answer
+import com.example.composemeapp.data.ResultAnswer
 import com.example.composemeapp.data.Question
 import com.example.composemeapp.data.SurveyResult
 
@@ -19,7 +19,7 @@ class QuestionState(
     val showDone: Boolean
 ) {
     var enableNext by mutableStateOf(false)
-    var answer by mutableStateOf<Answer<*>?>(null)
+    var answer by mutableStateOf<ResultAnswer<*>?>(null)
 }
 
 
