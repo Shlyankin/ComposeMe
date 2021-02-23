@@ -67,6 +67,7 @@ dependencies {
     implementation Libs.AndroidX.Activity.activityCompose
     // Compose
     implementation Libs.AndroidX.Compose.layout
+    implementation Libs.AndroidX.Compose.constraintLayout
     implementation Libs.AndroidX.Compose.material
     implementation Libs.AndroidX.Compose.materialIconsExtended
     implementation Libs.AndroidX.Compose.tooling
@@ -77,7 +78,10 @@ dependencies {
     // Koin
     implementation Libs.Koin.core
     implementation Libs.Koin.android
-    androidTestImplementation Libs.Koin.test
+    implementation Libs.Koin.fragment
+    implementation Libs.Koin.viewmodel
+    implementation Libs.Koin.scope
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     // todo: only needed for Compose alpha12
     androidTestImplementation Libs.AndroidX.Activity.activityCompose
