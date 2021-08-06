@@ -1,17 +1,9 @@
 package com.example.composemeapp
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.setContent
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.composemeapp.ui.theme.ComposeMeAppTheme
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
